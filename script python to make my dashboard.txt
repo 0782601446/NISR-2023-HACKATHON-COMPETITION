@@ -1,0 +1,289 @@
+import matplotlib.pyplot as plt
+
+# Data
+categories = ['Working age population', 'Labour force', 'Employed', 'Unemployed', 'Out of labour force']
+values = [8047921, 4790321, 3984502, 805819, 3257600]
+
+# Create histogram
+plt.figure(figsize=(10, 6))
+plt.bar(categories, values, color='skyblue')
+plt.xlabel('Categories')
+plt.ylabel('Total')
+plt.title('Population and Labour Statistics of both sex')
+
+# Add comments to the graph
+plt.annotate('Total Working Age Population: 8,047,921', xy=(0, 8047921), xytext=(0.5, 8500000),
+             arrowprops=dict(facecolor='black', shrink=0.05), fontsize=8, ha='center')
+plt.annotate('Total Labour Force: 4,790,321', xy=(1, 4790321), xytext=(1.5, 5000000),
+             arrowprops=dict(facecolor='black', shrink=0.05), fontsize=8, ha='center')
+plt.annotate('Total Employed: 3,984,502', xy=(2, 3984502), xytext=(2.5, 4200000),
+             arrowprops=dict(facecolor='black', shrink=0.05), fontsize=8, ha='center')
+plt.annotate('Total Unemployed: 805,819', xy=(3, 805819), xytext=(3.5, 850000),
+             arrowprops=dict(facecolor='black', shrink=0.05), fontsize=8, ha='center')
+plt.annotate('Total Out of Labour Force: 3,257,600', xy=(4, 3257600), xytext=(4.5, 3500000),
+             arrowprops=dict(facecolor='black', shrink=0.05), fontsize=8, ha='center')
+
+# Display the graph
+plt.xticks(rotation=45, ha='right')  # Rotate x-axis labels for better visibility
+plt.tight_layout()
+
+# Add legend
+plt.legend(['Total Population'])
+
+# Show the graph
+plt.show()
+
+# above is for both sex in total
+
+
+
+import matplotlib.pyplot as plt
+
+# Data
+categories = ['Working age population', 'Labour force', 'Employed', 'Unemployed', 'Out of labour force']
+male_values = [3767222, 2526448, 2175512, 350935, 1240775]
+female_values = [4280699, 2263873, 1808989, 454884, 2016826]
+
+# Create grouped bar graph with different colors
+bar_width = 0.35
+index = range(len(categories))
+
+plt.figure(figsize=(10, 6))
+bar1 = plt.bar(index, male_values, bar_width, label='Male', color='cornflowerblue')
+bar2 = plt.bar([i + bar_width for i in index], female_values, bar_width, label='Female', color='lightcoral')
+
+# Add labels, title, and legend
+plt.xlabel('Categories')
+plt.ylabel('Total')
+plt.title('Population and Labour Statistics by Gender')
+plt.xticks([i + bar_width/2 for i in index], categories, rotation=45, ha='right')
+plt.legend()
+
+# Add data values on top of the bars
+for bar, values in zip([bar1, bar2], [male_values, female_values]):
+    for i, value in enumerate(values):
+        plt.text(bar[i].get_x() + bar[i].get_width() / 2, value,
+                 f'{value:,}', ha='center', va='bottom', fontsize=8)
+
+# Display the graph
+plt.tight_layout()
+plt.show()
+
+#male and female statistics
+
+
+import matplotlib.pyplot as plt
+
+# Data
+categories = ['Working age population', 'Labour force', 'Employed', 'Unemployed', 'Out of labour force']
+urban_values = [2484614, 1682779, 1408296, 274483, 801835]
+rural_values = [5563307, 3107542, 2576206, 531336, 2455765]
+
+# Create grouped bar graph with different colors
+bar_width = 0.35
+index = range(len(categories))
+
+plt.figure(figsize=(10, 6))
+bar1 = plt.bar(index, urban_values, bar_width, label='Urban', color='limegreen')
+bar2 = plt.bar([i + bar_width for i in index], rural_values, bar_width, label='Rural', color='darkorange')
+
+# Add labels, title, and legend
+plt.xlabel('Categories')
+plt.ylabel('Total')
+plt.title('Population and Labour Statistics by Area of Residence')
+plt.xticks([i + bar_width/2 for i in index], categories, rotation=45, ha='right')
+plt.legend()
+
+# Add data values on top of the bars
+for bar, values in zip([bar1, bar2], [urban_values, rural_values]):
+    for i, value in enumerate(values):
+        plt.text(bar[i].get_x() + bar[i].get_width() / 2, value,
+                 f'{value:,}', ha='center', va='bottom', fontsize=8)
+
+# Display the graph
+plt.tight_layout()
+plt.show()
+
+# area of residence code.
+
+
+import matplotlib.pyplot as plt
+
+# Data
+categories = ['Working age population', 'Labour force', 'Employed', 'Unemployed', 'Out of labour force']
+participated_values = [2912573, 1624216, 1257156, 367060, 1288357]
+not_participated_values = [5135348, 3166105, 2727345, 438760, 1969243]
+
+# Create grouped bar graph with different colors
+bar_width = 0.35
+index = range(len(categories))
+
+plt.figure(figsize=(10, 6))
+bar1 = plt.bar(index, participated_values, bar_width, label='Participated', color='green')
+bar2 = plt.bar([i + bar_width for i in index], not_participated_values, bar_width, label='Not Participated', color='orange')
+
+# Add labels, title, and legend
+plt.xlabel('Categories')
+plt.ylabel('Total')
+plt.title('Subsistence Agriculture Participation')
+plt.xticks([i + bar_width/2 for i in index], categories, rotation=45, ha='right')
+plt.legend()
+
+# Add data values on top of the bars
+for bar, values in zip([bar1, bar2], [participated_values, not_participated_values]):
+    for i, value in enumerate(values):
+        plt.text(bar[i].get_x() + bar[i].get_width() / 2, value,
+                 f'{value:,}', ha='center', va='bottom', fontsize=8)
+
+# Display the graph
+plt.tight_layout()
+plt.show()
+
+
+
+# here, down are labors underutilization
+
+import matplotlib.pyplot as plt
+
+# Data
+categories = ['Labour force', 'Employment-to-population ratio(%)', 'Time related underemployment rate(%)',
+              'LU1-Unemployment rate (%)', 'LU2-Combined rate of unemployment and time-related underemployment(%)',
+              'LU3-Combined rate of unemployment and potential labour force(%)',
+              'LU4 - Composite measure of labour underutilization(%)', 'Youth unemployment rate (%)']
+values = [4790321, 49.5, 29.1, 16.8, 41.0, 34.0, 53.2, 21.5]
+
+# Define colors for each category
+colors = ['blue', 'green', 'orange', 'red', 'purple', 'pink', 'brown', 'gray']
+
+# Create a horizontal bar chart
+plt.figure(figsize=(10, 6))
+bars = plt.barh(categories, values, color=colors)
+
+# Add comments
+for bar, value in zip(bars, values):
+    plt.text(bar.get_width() + 0.2, bar.get_y() + bar.get_height() / 2 - 0.15, str(int(value)), fontsize=10)
+
+# Add labels and title
+plt.ylabel('Categories')
+plt.xlabel('Values')
+plt.title('Labor Market Statistics')
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+
+import matplotlib.pyplot as plt
+
+# Data
+categories = ['Labour force', 'Employment-to-population ratio(%)', 'Time related underemployment rate(%)',
+              'LU1-Unemployment rate (%)', 'LU2-Combined rate of unemployment and time-related underemployment(%)',
+              'LU3-Combined rate of unemployment and potential labour force(%)',
+              'LU4 - Composite measure of labour underutilization(%)', 'Youth unemployment rate (%)']
+values = [4790321, 49.5, 29.1, 16.8, 41.0, 34.0, 53.2, 21.5]
+
+# Define colors for each category
+colors = ['blue', 'green', 'orange', 'red', 'purple', 'pink', 'brown', 'gray']
+
+# Create a horizontal bar chart
+plt.figure(figsize=(10, 6))
+bars = plt.barh(categories, values, color=colors)
+
+# Add comments
+for bar, value in zip(bars, values):
+    plt.text(bar.get_width() + 0.2, bar.get_y() + bar.get_height() / 2 - 0.15, str(int(value)), fontsize=10)
+
+# Add labels and title
+plt.ylabel('Categories')
+plt.xlabel('Values')
+plt.title('Labor Market Statistics')
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Data
+categories = ['Labour force participation rate(%)', 'Employment-to-population ratio(%)', 'Time related underemployment rate(%)',
+              'LU1-Unemployment rate (%)', 'LU2-Combined rate of unemployment and time-related underemployment(%)',
+              'LU3-Combined rate of unemployment and potential labour force(%)',
+              'LU4 - Composite measure of labour underutilization(%)', 'Youth unemployment rate (%)']
+values_urban = [67.7, 56.7, 21.3, 16.3, 34.2, 28.0, 43.4, 20.0]
+values_rural = [55.9, 46.3, 33.3, 17.1, 44.7, 36.9, 57.9, 22.4]
+
+# Define colors for each category and area
+urban_color = '#FFFF00'  # Yellow for urban
+rural_color = '#FFD700'  # Deepest yellow for rural
+
+# Create a horizontal grouped bar chart
+bar_width = 0.2
+index = np.arange(len(categories))
+
+plt.figure(figsize=(12, 8))
+
+bars_urban = plt.barh(index, values_urban, bar_width, color=urban_color, label='Urban')
+bars_rural = plt.barh(index + bar_width, values_rural, bar_width, color=rural_color, label='Rural')
+
+# Add comments
+for bars, values in zip([bars_urban, bars_rural], [values_urban, values_rural]):
+    for bar, value in zip(bars, values):
+        plt.text(bar.get_width() + 0.2, bar.get_y() + bar.get_height() / 2 - 0.15, str(value), fontsize=10)
+
+# Add labels and title
+plt.ylabel('Categories')
+plt.xlabel('Values')
+plt.title('Labor Market Statistics by Area of Residence')
+plt.yticks([i + bar_width / 2 for i in index], categories)
+plt.legend()
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Data
+categories = ['Labour force participation rate(%)', 'Employment-to-population ratio(%)', 'Time related underemployment rate(%)',
+              'LU1-Unemployment rate (%)', 'LU2-Combined rate of unemployment and time-related underemployment(%)',
+              'LU3-Combined rate of unemployment and potential labour force(%)',
+              'LU4 - Composite measure of labour underutilization(%)', 'Youth unemployment rate (%)']
+values_participated = [55.8, 43.2, 40.1, 22.6, 53.6, 47.1, 68.3, 31.4]
+values_not_participated = [61.7, 53.1, 24.0, 13.9, 34.5, 25.5, 43.4, 18.2]
+
+# Define colors for each category
+green_color = '#008000'  # Green
+light_green_color = '#90EE90'  # Light green
+
+# Create a horizontal grouped bar chart
+bar_width = 0.35
+index = np.arange(len(categories))
+
+plt.figure(figsize=(12, 8))
+
+bars_participated = plt.barh(index, values_participated, bar_width, color=green_color, label='Participated')
+bars_not_participated = plt.barh(index + bar_width, values_not_participated, bar_width, color=light_green_color, label='Not Participated')
+
+# Add comments
+for bars, values in zip([bars_participated, bars_not_participated], [values_participated, values_not_participated]):
+    for bar, value in zip(bars, values):
+        plt.text(bar.get_width() + 0.2, bar.get_y() + bar.get_height() / 2 - 0.15, str(value), fontsize=10)
+
+# Add labels and title
+plt.ylabel('Categories')
+plt.xlabel('Values')
+plt.title('Labor Market Statistics')
+plt.yticks([i + bar_width / 2 for i in index], categories)
+plt.legend()
+
+# Show the plot
+plt.tight_layout()
+plt.show()
+
+
+
+
+
